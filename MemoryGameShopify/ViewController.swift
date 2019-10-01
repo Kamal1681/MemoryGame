@@ -8,8 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-
+class ViewController: UIViewController {
+    let reuseIdentifier = "ShopifyPhotoCell"
+//    let sectionInsets = UIEdgeInsets(top: 50.0,
+//                                     left: 20.0,
+//                                     bottom: 50.0,
+//                                     right: 20.0)
     var photoArray = [ShopifyPhoto]()
     var gameDictionary = [Int: ShopifyPhoto]()
     var gameArray = [ShopifyPhoto]()
@@ -18,28 +22,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        retrievePhotos()
         shopifyCollectionView.delegate = self
         shopifyCollectionView.dataSource = self
-        shopifyCollectionView.register(ShopifyPhotoCell.self, forCellWithReuseIdentifier: "shopifyPhotoCell")
-        retrievePhotos()
+        //shopifyCollectionView.register(ShopifyPhotoCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return gameArray.count
-    }
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: "shopifyPhotoCell",
-            for: indexPath) as? ShopifyPhotoCell else {
-                preconditionFailure("Invalid cell type")
-        }
-        cell.shopifyPhoto.image = UIImage.init(named: "images")
-        return cell
-    }
+ 
     
     func retrievePhotos() {
        let url = URL(string: "https://shopicruit.myshopify.com/admin/products.json?page=1&access_token=c32313df0d0ef512ca64d5b336a0d7c6")
@@ -59,7 +49,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                         
                     }
                     self.constructGameArray()
-                    
+                    DispatchQueue.main.async {
+                        self.shopifyCollectionView.reloadData()
+                    }
                 }
             }
             catch {
@@ -86,11 +78,32 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
    
 
 }
-extension ViewController: UICollectionViewDelegateFlowLayout {
+extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return gameArray.count
+        
+    }
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: reuseIdentifier,
+            for: indexPath) as? ShopifyPhotoCell else {
+                preconditionFailure("Invalid cell type")
+        }
+ 
+        cell.shopifyPhoto.image = UIImage(named: "images")
+        return cell
+    }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
     }
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize.init(width: 50.0, height: 50.0)
     }
 }

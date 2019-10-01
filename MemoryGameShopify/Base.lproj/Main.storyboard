@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KOU-TL-VJK">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="agn-eD-gq2">
-                                <rect key="frame" x="0.0" y="144" width="414" height="718"/>
+                                <rect key="frame" x="0.0" y="188" width="414" height="674"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RLD-l7-bOC">
                                     <size key="itemSize" width="91" height="96"/>
@@ -28,7 +28,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="shopifyPhotoCell" id="2uP-n0-55W" customClass="ShopifyPhotoCell" customModule="MemoryGameShopify" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ShopifyPhotoCell" id="2uP-n0-55W" customClass="ShopifyPhotoCell" customModule="MemoryGameShopify" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="91" height="96"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -48,12 +48,12 @@
                                             <constraint firstItem="dxa-KQ-2pb" firstAttribute="centerX" secondItem="2uP-n0-55W" secondAttribute="centerX" id="9a4-pl-udb"/>
                                             <constraint firstItem="dxa-KQ-2pb" firstAttribute="centerY" secondItem="2uP-n0-55W" secondAttribute="centerY" id="D8M-8t-iiM"/>
                                             <constraint firstAttribute="bottom" secondItem="4A9-I1-Rgl" secondAttribute="bottom" id="Ggo-mV-arh"/>
+                                            <constraint firstItem="4A9-I1-Rgl" firstAttribute="top" secondItem="2uP-n0-55W" secondAttribute="top" id="NUj-rv-Qji"/>
                                             <constraint firstItem="4A9-I1-Rgl" firstAttribute="leading" secondItem="2uP-n0-55W" secondAttribute="leading" id="SnN-oY-v98"/>
-                                            <constraint firstItem="4A9-I1-Rgl" firstAttribute="top" secondItem="2uP-n0-55W" secondAttribute="top" id="uwg-57-ZWE"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="activityIndicator" destination="dxa-KQ-2pb" id="qdf-qu-YQU"/>
-                                            <outlet property="shopifyPhoto" destination="4A9-I1-Rgl" id="Xhm-Wr-jrX"/>
+                                            <outlet property="shopifyPhoto" destination="4A9-I1-Rgl" id="JVM-3Q-BpJ"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -68,11 +68,30 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="NXM-Rl-gbv"/>
                     <connections>
                         <outlet property="shopifyCollectionView" destination="agn-eD-gq2" id="vc1-4q-8IT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1042.0289855072465" y="119.86607142857142"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="f7S-Vf-59t">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KOU-TL-VJK" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gCh-12-rnV">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ECC-mJ-nHq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wFE-Cn-nR5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="119.86607142857142"/>
         </scene>
