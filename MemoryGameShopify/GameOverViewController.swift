@@ -29,6 +29,12 @@ class GameOverViewController: UIViewController {
     }
     
 
+    @IBAction func isPressed(_ sender: UIButton) {
+        if let startGameViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewGame") as? StartGameViewController
+        {
+            present(startGameViewController, animated: true, completion: nil)
+        }
+    }
     /*
     // MARK: - Navigation
 
