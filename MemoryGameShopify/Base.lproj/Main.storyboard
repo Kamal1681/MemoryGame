@@ -52,19 +52,53 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCh-sb-fhS">
+                                <rect key="frame" x="20" y="108" width="50" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="scoreLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vng-rp-tka">
+                                <rect key="frame" x="82" y="108" width="84" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="timeLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9H-qT-KpN">
+                                <rect key="frame" x="319" y="108" width="75" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BvS-Fd-he3">
+                                <rect key="frame" x="264" y="108" width="43" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="vng-rp-tka" firstAttribute="centerY" secondItem="cCh-sb-fhS" secondAttribute="centerY" id="2en-0u-LYD"/>
+                            <constraint firstItem="f9H-qT-KpN" firstAttribute="centerY" secondItem="BvS-Fd-he3" secondAttribute="centerY" id="4od-dU-Ypj"/>
+                            <constraint firstItem="f9H-qT-KpN" firstAttribute="leading" secondItem="BvS-Fd-he3" secondAttribute="trailing" constant="12" id="FCf-K1-us1"/>
+                            <constraint firstItem="vng-rp-tka" firstAttribute="leading" secondItem="cCh-sb-fhS" secondAttribute="trailing" constant="12" id="I2F-Fr-MwB"/>
+                            <constraint firstItem="f9H-qT-KpN" firstAttribute="centerY" secondItem="cCh-sb-fhS" secondAttribute="centerY" id="Pcy-xh-9Pr"/>
                             <constraint firstItem="agn-eD-gq2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="W5g-xh-RvV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="agn-eD-gq2" secondAttribute="trailing" id="ewB-96-Q7Q"/>
                             <constraint firstItem="agn-eD-gq2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="fwN-4L-ffi"/>
+                            <constraint firstItem="cCh-sb-fhS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="hTg-C2-9gj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="f9H-qT-KpN" secondAttribute="trailing" constant="20" id="hwm-o4-BAQ"/>
+                            <constraint firstItem="cCh-sb-fhS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="rxg-O1-5Ii"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="agn-eD-gq2" secondAttribute="bottom" id="tgx-Ki-6cX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="NXM-Rl-gbv"/>
                     <connections>
+                        <outlet property="scoreLabel" destination="vng-rp-tka" id="KLB-gp-948"/>
                         <outlet property="shopifyCollectionView" destination="agn-eD-gq2" id="vc1-4q-8IT"/>
+                        <outlet property="timeLabel" destination="f9H-qT-KpN" id="ok0-ph-3pX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

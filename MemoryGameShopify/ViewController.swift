@@ -9,36 +9,57 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
     let reuseIdentifier = "ShopifyPhotoCell"
-//    let sectionInsets = UIEdgeInsets(top: 50.0,
-//                                     left: 20.0,
-//                                     bottom: 50.0,
-//                                     right: 20.0)
     var photoArray = [ShopifyPhoto]()
     var gameDictionary = [Int: ShopifyPhoto]()
     var gameArray = [ShopifyPhoto]()
     var selectCounter = 0
     var score = 0
+    var time = 0
+    var timer = Timer()
     var firstCell: ShopifyPhotoCell?
     var secondCell: ShopifyPhotoCell?
     var firstPhoto: ShopifyPhoto?
     var secondPhoto: ShopifyPhoto?
     var disableCollectionView = false
     
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var shopifyCollectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         retrievePhotos()
         shopifyCollectionView.delegate = self
         shopifyCollectionView.dataSource = self
+        
+        startTimer()
+        updateScore()
 
         
     }
+// MARK: - Updating game HUD
     
- 
+    func startTimer() {
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (time) in
+            self.time += 1
+            self.timeLabel.text = "\(self.time)"
+        })
+    }
+
+    func updateScore() {
+        scoreLabel.text = "\(score)"
+        if score == 10 {
+            timer.invalidate()
+        }
+    }
+    
+// MARK: - Setting up the photos array
     
     func retrievePhotos() {
+        
        let url = URL(string: "https://shopicruit.myshopify.com/admin/products.json?page=1&access_token=c32313df0d0ef512ca64d5b336a0d7c6")
         
         let task = URLSession.shared.dataTask(with: url! as URL) { (data, response, error) in
@@ -53,7 +74,6 @@ class ViewController: UIViewController {
                         
                         let shopifyPhoto = ShopifyPhoto(id: id, photoURL: photpoURL! )
                         self.photoArray.append(shopifyPhoto)
-                        
                     }
                     self.constructGameArray()
                     DispatchQueue.main.async {
@@ -66,10 +86,7 @@ class ViewController: UIViewController {
             }
         }
         task.resume()
-        
-        
     }
-    
     func constructGameArray() {
         
         while gameDictionary.count < 10 {
@@ -84,16 +101,14 @@ class ViewController: UIViewController {
         }
         gameArray.shuffle()
     }
-   
-
 }
+// MARK: - CollectionView Datasource and delegate methods
+
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return gameArray.count
         
-    }
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -105,7 +120,9 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
 
         return cell
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         if disableCollectionView {
             return
         }
@@ -121,22 +138,21 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
                         self.gameLogic(cell: cell, shopifyPhoto: self.gameArray[indexPath.row])
                     }
                 }
-        
         }
         task.resume()
- 
+    }
 
-        
-    }
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        
-    }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize.init(width: 80.0, height: 80.0)
+        let height = collectionView.frame.size.height
+        let width = collectionView.frame.size.width
+
+        return CGSize(width: width * 0.2, height: height * 0.18)
     }
+    
+    // MARK: - Game Logic function for checking photos matching and updating score
+    
     func gameLogic(cell: ShopifyPhotoCell, shopifyPhoto: ShopifyPhoto) {
         selectCounter += 1
-
         if selectCounter == 1 {
             firstCell = cell
             firstPhoto = shopifyPhoto
@@ -147,10 +163,11 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
             secondPhoto = shopifyPhoto
             if firstPhoto?.id == secondPhoto?.id {
                 score += 1
+                updateScore()
                 
             } else {
                 disableCollectionView = true
-                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
+                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
                     self.firstCell!.shopifyPhoto?.image = UIImage(named: "images")
                     self.secondCell!.shopifyPhoto?.image = UIImage(named: "images")
                     self.disableCollectionView = false
