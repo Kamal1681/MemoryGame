@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C61B2A202343B814003B17E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C61B2A1F2343B814003B17E7 /* Assets.xcassets */; };
+		C6443F71234515EC0026062D /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6443F70234515EC0026062D /* GameOverViewController.swift */; };
 		C653DDDB2333D0E1008816A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C653DDDA2333D0E1008816A0 /* AppDelegate.swift */; };
 		C653DDDD2333D0E1008816A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C653DDDC2333D0E1008816A0 /* ViewController.swift */; };
 		C653DDE02333D0E1008816A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C653DDDE2333D0E1008816A0 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		C61B2A1F2343B814003B17E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C6443F70234515EC0026062D /* GameOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
 		C653DDD72333D0E1008816A0 /* MemoryGameShopify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoryGameShopify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C653DDDA2333D0E1008816A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C653DDDC2333D0E1008816A0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 				C68A7910233980D900F2DBD4 /* ShopifyPhoto.swift */,
 				C68A790E23384C7600F2DBD4 /* ShopifyPhotoCell.swift */,
 				C653DDDE2333D0E1008816A0 /* Main.storyboard */,
+				C6443F70234515EC0026062D /* GameOverViewController.swift */,
 				C653DDE32333D0E5008816A0 /* LaunchScreen.storyboard */,
 				C653DDE62333D0E5008816A0 /* Info.plist */,
 			);
@@ -145,6 +148,7 @@
 				C68A7911233980D900F2DBD4 /* ShopifyPhoto.swift in Sources */,
 				C68A790F23384C7600F2DBD4 /* ShopifyPhotoCell.swift in Sources */,
 				C653DDDB2333D0E1008816A0 /* AppDelegate.swift in Sources */,
+				C6443F71234515EC0026062D /* GameOverViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

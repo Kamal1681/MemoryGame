@@ -51,8 +51,20 @@ class ViewController: UIViewController {
 
     func updateScore() {
         scoreLabel.text = "\(score)"
-        if score == 10 {
-            timer.invalidate()
+        if score == 1 {
+            gameOver()
+        }
+    }
+    func gameOver() {
+        
+        timer.invalidate()
+        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameOver") as? GameOverViewController
+        {
+            viewController.time = self.time
+            if let navigator = navigationController {
+                navigator.pushViewController(viewController, animated: true)
+            }
+            //present(viewController, animated: true, completion: nil)
         }
     }
     
@@ -167,7 +179,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
                 
             } else {
                 disableCollectionView = true
-                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
+                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
                     self.firstCell!.shopifyPhoto?.image = UIImage(named: "images")
                     self.secondCell!.shopifyPhoto?.image = UIImage(named: "images")
                     self.disableCollectionView = false
