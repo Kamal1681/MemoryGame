@@ -23,7 +23,10 @@ class ViewController: UIViewController {
     var firstPhoto: ShopifyPhoto?
     var secondPhoto: ShopifyPhoto?
     var disableCollectionView = false
-    
+    var difficulty: Int = 1
+    var heightRatio: CGFloat = 0.18
+    var widthRatio: CGFloat = 0.2
+    var gameArraySize: Int = 10
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var shopifyCollectionView: UICollectionView!
@@ -34,13 +37,32 @@ class ViewController: UIViewController {
         shopifyCollectionView.delegate = self
         shopifyCollectionView.dataSource = self
         
+        setUpDifficulty()
         startTimer()
         updateScore()
 
-        
     }
-// MARK: - Updating game HUD
-    
+// MARK: - Updating game HUD and setting difficulty
+    func setUpDifficulty() {
+        switch difficulty {
+        case 1:
+            gameArraySize = 10
+            heightRatio = 0.18
+            widthRatio = 0.2
+            break
+        case 2:
+            gameArraySize = 15
+            heightRatio = 0.12
+            widthRatio = 0.15
+            break
+        case 3:
+            gameArraySize = 20
+            heightRatio = 0.09
+            widthRatio = 0.1
+        default:
+            break
+        }
+    }
     func startTimer() {
         
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (time) in
@@ -51,7 +73,7 @@ class ViewController: UIViewController {
 
     func updateScore() {
         scoreLabel.text = "\(score)"
-        if score == 1 {
+        if score == gameArraySize {
             gameOver()
         }
     }
@@ -61,10 +83,7 @@ class ViewController: UIViewController {
         if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameOver") as? GameOverViewController
         {
             viewController.time = self.time
-            if let navigator = navigationController {
-                navigator.pushViewController(viewController, animated: true)
-            }
-            //present(viewController, animated: true, completion: nil)
+            present(viewController, animated: true, completion: nil)
         }
     }
     
@@ -101,7 +120,7 @@ class ViewController: UIViewController {
     }
     func constructGameArray() {
         
-        while gameDictionary.count < 10 {
+        while gameDictionary.count < gameArraySize {
             guard  let randomPhoto = photoArray.randomElement() else {return}
            
             let key : Int = randomPhoto.id!
@@ -158,7 +177,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
         let height = collectionView.frame.size.height
         let width = collectionView.frame.size.width
 
-        return CGSize(width: width * 0.2, height: height * 0.18)
+        return CGSize(width: width * widthRatio, height: height * heightRatio)
     }
     
     // MARK: - Game Logic function for checking photos matching and updating score
@@ -171,12 +190,14 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
             
         }
         else if selectCounter == 2 {
+            
             secondCell = cell
             secondPhoto = shopifyPhoto
-            if firstPhoto?.id == secondPhoto?.id {
+            if firstPhoto?.id == secondPhoto?.id && firstCell != secondCell {
                 score += 1
                 updateScore()
-                
+                firstCell?.isUserInteractionEnabled = false
+                secondCell?.isUserInteractionEnabled = false
             } else {
                 disableCollectionView = true
                 DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
@@ -184,9 +205,8 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
                     self.secondCell!.shopifyPhoto?.image = UIImage(named: "images")
                     self.disableCollectionView = false
                 })
-                
             }
-          selectCounter = 0
+        selectCounter = 0
         }
 
     }

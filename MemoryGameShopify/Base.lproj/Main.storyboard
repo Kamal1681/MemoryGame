@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KOU-TL-VJK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sRA-E5-dSH">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="agn-eD-gq2">
-                                <rect key="frame" x="0.0" y="188" width="414" height="674"/>
+                                <rect key="frame" x="0.0" y="144" width="414" height="718"/>
                                 <color key="backgroundColor" red="0.32156863810000003" green="0.3843137324" blue="0.4431372583" alpha="1" colorSpace="deviceRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RLD-l7-bOC">
                                     <size key="itemSize" width="91" height="96"/>
@@ -53,31 +53,31 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCh-sb-fhS">
-                                <rect key="frame" x="20" y="152" width="50" height="21"/>
+                                <rect key="frame" x="20" y="108" width="50" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="scoreLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vng-rp-tka">
-                                <rect key="frame" x="82" y="152" width="84" height="21"/>
+                                <rect key="frame" x="82" y="108" width="84" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="timeLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9H-qT-KpN">
-                                <rect key="frame" x="319" y="152" width="75" height="21"/>
+                                <rect key="frame" x="319" y="108" width="75" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BvS-Fd-he3">
-                                <rect key="frame" x="264" y="152" width="43" height="21"/>
+                                <rect key="frame" x="264" y="108" width="43" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Memory Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xET-pw-Hkw">
-                                <rect key="frame" x="111" y="96" width="192.5" height="36"/>
+                                <rect key="frame" x="111" y="52" width="192.5" height="36"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -111,7 +111,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1042.0289855072465" y="119.86607142857142"/>
+            <point key="canvasLocation" x="1950.7246376811595" y="114.50892857142857"/>
         </scene>
         <!--Game Over View Controller-->
         <scene sceneID="pPa-2a-wZD">
@@ -187,28 +187,96 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eim-wh-B8j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1718" y="121"/>
+            <point key="canvasLocation" x="2703" y="115"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="f7S-Vf-59t">
+        <!--Start Game View Controller-->
+        <scene sceneID="iuC-mL-eTS">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KOU-TL-VJK" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gCh-12-rnV">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ECC-mJ-nHq"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wFE-Cn-nR5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="sRA-E5-dSH" customClass="StartGameViewController" customModule="MemoryGameShopify" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EyE-2B-8MP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ssl-JN-mbW">
+                                <rect key="frame" x="58" y="238" width="298.5" height="52.5"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Memory Game">
+                                        <attributes>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" size="45" name="Tahoma-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" tag="1" contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rq3-fj-OmG">
+                                <rect key="frame" x="137" y="431" width="141" height="35"/>
+                                <color key="backgroundColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Easy">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="isPressed:" destination="sRA-E5-dSH" eventType="touchUpInside" id="4Of-tT-2Tr"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="easyGame" id="zHC-ha-daE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J27-q0-4f8">
+                                <rect key="frame" x="137" y="493" width="141" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="isPressed:" destination="sRA-E5-dSH" eventType="touchUpInside" id="nER-2V-hdD"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="normalGame" id="gQE-0v-bX7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="3" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uMO-3z-QPN">
+                                <rect key="frame" x="137" y="553" width="141" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Hard">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="isPressed:" destination="sRA-E5-dSH" eventType="touchUpInside" id="1jg-7k-9Gw"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="hardGame" id="t3h-Wd-aZW"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tHO-y6-OcT">
+                                <rect key="frame" x="163" y="357" width="88" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.076731972396373749" green="0.7424432635307312" blue="0.75562483072280884" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Rq3-fj-OmG" firstAttribute="top" secondItem="ssl-JN-mbW" secondAttribute="bottom" constant="140.5" id="4cN-qE-ab5"/>
+                            <constraint firstItem="tHO-y6-OcT" firstAttribute="centerX" secondItem="EyE-2B-8MP" secondAttribute="centerX" id="CtW-2t-b7Y"/>
+                            <constraint firstItem="ssl-JN-mbW" firstAttribute="top" secondItem="Ia7-wi-hkm" secondAttribute="top" constant="194" id="Hct-B3-cGH"/>
+                            <constraint firstItem="ssl-JN-mbW" firstAttribute="centerX" secondItem="EyE-2B-8MP" secondAttribute="centerX" id="bSE-Uj-vd2"/>
+                            <constraint firstItem="Rq3-fj-OmG" firstAttribute="centerX" secondItem="EyE-2B-8MP" secondAttribute="centerX" id="fD0-v2-Onb"/>
+                            <constraint firstItem="tHO-y6-OcT" firstAttribute="top" secondItem="ssl-JN-mbW" secondAttribute="bottom" constant="66.5" id="na4-V2-FqF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ia7-wi-hkm"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="LEx-5a-8KU"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XWZ-84-yZB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="131.8840579710145" y="119.86607142857142"/>
+            <point key="canvasLocation" x="1128.985507246377" y="114.50892857142857"/>
         </scene>
     </scenes>
     <resources>
         <image name="images" width="75" height="75"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="t3h-Wd-aZW"/>
+    </inferredMetricsTieBreakers>
 </document>
