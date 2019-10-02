@@ -12,4 +12,6 @@ class ShopifyPhotoCell: UICollectionViewCell {
     
     @IBOutlet weak var shopifyPhoto: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    
 }

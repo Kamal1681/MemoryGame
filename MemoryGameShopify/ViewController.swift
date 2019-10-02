@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     var photoArray = [ShopifyPhoto]()
     var gameDictionary = [Int: ShopifyPhoto]()
     var gameArray = [ShopifyPhoto]()
+    var selectCounter = 0
+    var score = 0
     
     @IBOutlet weak var shopifyCollectionView: UICollectionView!
     override func viewDidLoad() {
@@ -25,7 +27,7 @@ class ViewController: UIViewController {
         retrievePhotos()
         shopifyCollectionView.delegate = self
         shopifyCollectionView.dataSource = self
-        //shopifyCollectionView.register(ShopifyPhotoCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+
         
     }
     
@@ -65,13 +67,15 @@ class ViewController: UIViewController {
     
     func constructGameArray() {
         
-        for _ in 1 ... 10 {
+        while gameDictionary.count < 10 {
             guard  let randomPhoto = photoArray.randomElement() else {return}
            
             let key : Int = randomPhoto.id!
             gameDictionary[key] = randomPhoto
-            gameArray.append(randomPhoto)
-            gameArray.append(randomPhoto)
+        }
+        for shopifyPhoto in gameDictionary.values {
+            gameArray.append(shopifyPhoto)
+            gameArray.append(shopifyPhoto)
         }
         gameArray.shuffle()
     }
@@ -93,17 +97,33 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
             for: indexPath) as? ShopifyPhotoCell else {
                 preconditionFailure("Invalid cell type")
         }
- 
-        cell.shopifyPhoto.image = UIImage(named: "images")
+        //cell.activityIndicator.removeFromSuperview()
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectCounter += 1
+        let cell = collectionView.cellForItem(at: indexPath) as! ShopifyPhotoCell
+        cell.activityIndicator.startAnimating()
+        let url = gameArray[indexPath.row].photoURL!
+        let task = URLSession.shared.dataTask(with: url as URL) { (data, response, error) in
+                if data != nil {
+
+                    DispatchQueue.main.async {
+                        let image = UIImage(data: data!)
+                        cell.shopifyPhoto.image = image
+                    }
+                }
+        
+        }
+        task.resume()
+        cell.activityIndicator.stopAnimating()
+
         
     }
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize.init(width: 50.0, height: 50.0)
+        return CGSize.init(width: 80.0, height: 80.0)
     }
 }
