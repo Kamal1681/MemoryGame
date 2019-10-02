@@ -38,21 +38,15 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="images" translatesAutoresizingMaskIntoConstraints="NO" id="4A9-I1-Rgl">
                                                     <rect key="frame" x="0.0" y="0.0" width="91" height="96"/>
                                                 </imageView>
-                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="dxa-KQ-2pb" userLabel="Activity Indicator">
-                                                    <rect key="frame" x="35.5" y="38" width="20" height="20"/>
-                                                </activityIndicatorView>
                                             </subviews>
                                         </view>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="4A9-I1-Rgl" secondAttribute="trailing" id="1Iu-0G-zhb"/>
-                                            <constraint firstItem="dxa-KQ-2pb" firstAttribute="centerX" secondItem="2uP-n0-55W" secondAttribute="centerX" id="9a4-pl-udb"/>
-                                            <constraint firstItem="dxa-KQ-2pb" firstAttribute="centerY" secondItem="2uP-n0-55W" secondAttribute="centerY" id="D8M-8t-iiM"/>
                                             <constraint firstAttribute="bottom" secondItem="4A9-I1-Rgl" secondAttribute="bottom" id="Ggo-mV-arh"/>
                                             <constraint firstItem="4A9-I1-Rgl" firstAttribute="top" secondItem="2uP-n0-55W" secondAttribute="top" id="NUj-rv-Qji"/>
                                             <constraint firstItem="4A9-I1-Rgl" firstAttribute="leading" secondItem="2uP-n0-55W" secondAttribute="leading" id="SnN-oY-v98"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="activityIndicator" destination="dxa-KQ-2pb" id="qdf-qu-YQU"/>
                                             <outlet property="shopifyPhoto" destination="4A9-I1-Rgl" id="JVM-3Q-BpJ"/>
                                         </connections>
                                     </collectionViewCell>

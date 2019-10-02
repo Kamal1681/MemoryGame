@@ -19,6 +19,11 @@ class ViewController: UIViewController {
     var gameArray = [ShopifyPhoto]()
     var selectCounter = 0
     var score = 0
+    var firstCell: ShopifyPhotoCell?
+    var secondCell: ShopifyPhotoCell?
+    var firstPhoto: ShopifyPhoto?
+    var secondPhoto: ShopifyPhoto?
+    var disableCollectionView = false
     
     @IBOutlet weak var shopifyCollectionView: UICollectionView!
     override func viewDidLoad() {
@@ -97,13 +102,15 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
             for: indexPath) as? ShopifyPhotoCell else {
                 preconditionFailure("Invalid cell type")
         }
-        //cell.activityIndicator.removeFromSuperview()
+
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectCounter += 1
+        if disableCollectionView {
+            return
+        }
         let cell = collectionView.cellForItem(at: indexPath) as! ShopifyPhotoCell
-        cell.activityIndicator.startAnimating()
+    
         let url = gameArray[indexPath.row].photoURL!
         let task = URLSession.shared.dataTask(with: url as URL) { (data, response, error) in
                 if data != nil {
@@ -111,12 +118,13 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
                     DispatchQueue.main.async {
                         let image = UIImage(data: data!)
                         cell.shopifyPhoto.image = image
+                        self.gameLogic(cell: cell, shopifyPhoto: self.gameArray[indexPath.row])
                     }
                 }
         
         }
         task.resume()
-        cell.activityIndicator.stopAnimating()
+ 
 
         
     }
@@ -125,5 +133,32 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize.init(width: 80.0, height: 80.0)
+    }
+    func gameLogic(cell: ShopifyPhotoCell, shopifyPhoto: ShopifyPhoto) {
+        selectCounter += 1
+
+        if selectCounter == 1 {
+            firstCell = cell
+            firstPhoto = shopifyPhoto
+            
+        }
+        else if selectCounter == 2 {
+            secondCell = cell
+            secondPhoto = shopifyPhoto
+            if firstPhoto?.id == secondPhoto?.id {
+                score += 1
+                
+            } else {
+                disableCollectionView = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
+                    self.firstCell!.shopifyPhoto?.image = UIImage(named: "images")
+                    self.secondCell!.shopifyPhoto?.image = UIImage(named: "images")
+                    self.disableCollectionView = false
+                })
+                
+            }
+          selectCounter = 0
+        }
+
     }
 }
