@@ -36,13 +36,19 @@ class StartGameViewController: UIViewController {
         let viewController = segue.destination as! ViewController
         switch segue.identifier {
         case "easyGame":
-            viewController.difficulty = 1
+            viewController.gameArraySize = 10
+            viewController.itemsPerRow = 4.0
+            viewController.numberOfRows = 5.0
             break
         case "normalGame":
-            viewController.difficulty = 2
+            viewController.gameArraySize = 15
+            viewController.itemsPerRow = 5.0
+            viewController.numberOfRows = 6.0
             break
         case "hardGame":
-            viewController.difficulty = 3
+            viewController.gameArraySize = 20
+            viewController.itemsPerRow = 5.0
+            viewController.numberOfRows = 8.0
             break
         default:
             break

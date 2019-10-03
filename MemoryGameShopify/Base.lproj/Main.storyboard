@@ -82,6 +82,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XAh-cV-r2W">
+                                <rect key="frame" x="26" y="70" width="34" height="30"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mFq-hj-7fH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -92,17 +99,18 @@
                             <constraint firstItem="f9H-qT-KpN" firstAttribute="centerY" secondItem="vng-rp-tka" secondAttribute="centerY" id="MiV-nx-Uhr"/>
                             <constraint firstItem="cCh-sb-fhS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="64" id="PR0-FR-bko"/>
                             <constraint firstItem="agn-eD-gq2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="W5g-xh-RvV"/>
+                            <constraint firstItem="cCh-sb-fhS" firstAttribute="top" secondItem="XAh-cV-r2W" secondAttribute="bottom" constant="8" id="cMR-Jk-wZ1"/>
                             <constraint firstItem="vng-rp-tka" firstAttribute="leading" secondItem="cCh-sb-fhS" secondAttribute="trailing" constant="12" id="e7U-Hj-q7A"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="agn-eD-gq2" secondAttribute="trailing" id="ewB-96-Q7Q"/>
                             <constraint firstItem="f9H-qT-KpN" firstAttribute="leading" secondItem="BvS-Fd-he3" secondAttribute="trailing" constant="12" id="fEU-Ss-Dmc"/>
                             <constraint firstItem="agn-eD-gq2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="fwN-4L-ffi"/>
                             <constraint firstItem="xET-pw-Hkw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hHl-ce-K0u"/>
+                            <constraint firstItem="XAh-cV-r2W" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="26" id="oae-bk-wr8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="agn-eD-gq2" secondAttribute="bottom" id="tgx-Ki-6cX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="f9H-qT-KpN" secondAttribute="trailing" constant="20" id="u8a-BR-1dJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="NXM-Rl-gbv"/>
                     <connections>
                         <outlet property="scoreLabel" destination="vng-rp-tka" id="KLB-gp-948"/>
                         <outlet property="shopifyCollectionView" destination="agn-eD-gq2" id="vc1-4q-8IT"/>

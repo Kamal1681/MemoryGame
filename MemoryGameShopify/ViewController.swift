@@ -23,10 +23,14 @@ class ViewController: UIViewController {
     var firstPhoto: ShopifyPhoto?
     var secondPhoto: ShopifyPhoto?
     var disableCollectionView = false
-    var difficulty: Int = 1
-    var heightRatio: CGFloat = 0.18
-    var widthRatio: CGFloat = 0.2
+
     var gameArraySize: Int = 10
+    var itemsPerRow: CGFloat = 4.0
+    var numberOfRows: CGFloat = 5.0
+    let sectionInsets = UIEdgeInsets(top: 20.0,
+                                     left: 10.0,
+                                     bottom: 20.0,
+                                     right: 10.0)
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var shopifyCollectionView: UICollectionView!
@@ -37,32 +41,12 @@ class ViewController: UIViewController {
         shopifyCollectionView.delegate = self
         shopifyCollectionView.dataSource = self
         
-        setUpDifficulty()
         startTimer()
         updateScore()
 
     }
-// MARK: - Updating game HUD and setting difficulty
-    func setUpDifficulty() {
-        switch difficulty {
-        case 1:
-            gameArraySize = 10
-            heightRatio = 0.18
-            widthRatio = 0.2
-            break
-        case 2:
-            gameArraySize = 15
-            heightRatio = 0.12
-            widthRatio = 0.15
-            break
-        case 3:
-            gameArraySize = 20
-            heightRatio = 0.09
-            widthRatio = 0.1
-        default:
-            break
-        }
-    }
+// MARK: - Updating game HUD
+    
     func startTimer() {
         
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (time) in
@@ -74,12 +58,17 @@ class ViewController: UIViewController {
     func updateScore() {
         scoreLabel.text = "\(score)"
         if score == gameArraySize {
-            gameOver()
+            DispatchQueue.main.asyncAfter(deadline:.now() + .seconds(4), execute: {
+                self.gameOver()
+            })
+            
         }
     }
     func gameOver() {
         
         timer.invalidate()
+        
+        
         if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameOver") as? GameOverViewController
         {
             viewController.time = self.time
@@ -87,7 +76,10 @@ class ViewController: UIViewController {
         }
     }
     
-// MARK: - Setting up the photos array
+    @IBAction func backButtonPressed(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    // MARK: - Setting up the photos array
     
     func retrievePhotos() {
         
@@ -174,10 +166,20 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let height = collectionView.frame.size.height
-        let width = collectionView.frame.size.width
 
-        return CGSize(width: width * widthRatio, height: height * heightRatio)
+        let paddingSpaceHorizontal = sectionInsets.left * (itemsPerRow + 1)
+        let availableWidth = collectionView.frame.size.width - paddingSpaceHorizontal
+        let widthPerItem = availableWidth / itemsPerRow
+        let paddingSpaceVertical = sectionInsets.top * (numberOfRows + 1)
+        let availableHeight = collectionView.frame.size.height - paddingSpaceVertical
+        let heightPerItem = availableHeight / numberOfRows
+
+        return CGSize(width: widthPerItem, height: heightPerItem)
+    }
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        return sectionInsets
     }
     
     // MARK: - Game Logic function for checking photos matching and updating score
