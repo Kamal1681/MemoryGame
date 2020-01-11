@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sRA-E5-dSH">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sRA-E5-dSH">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,11 +12,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MemoryGameShopify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="agn-eD-gq2">
-                                <rect key="frame" x="0.0" y="144" width="414" height="718"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="708"/>
                                 <color key="backgroundColor" red="0.078431372549019607" green="0.74117647058823533" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RLD-l7-bOC">
                                     <size key="itemSize" width="91" height="96"/>
@@ -53,37 +50,37 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCh-sb-fhS">
-                                <rect key="frame" x="20" y="108" width="50" height="21"/>
+                                <rect key="frame" x="20" y="64" width="50" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="scoreLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vng-rp-tka">
-                                <rect key="frame" x="82" y="108" width="84" height="21"/>
+                                <rect key="frame" x="82" y="64" width="84" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="timeLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9H-qT-KpN">
-                                <rect key="frame" x="319" y="108" width="75" height="21"/>
+                                <rect key="frame" x="319" y="64" width="75" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BvS-Fd-he3">
-                                <rect key="frame" x="264" y="108" width="43" height="21"/>
+                                <rect key="frame" x="264" y="64" width="43" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Memory Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xET-pw-Hkw">
-                                <rect key="frame" x="111" y="52" width="192.5" height="36"/>
+                                <rect key="frame" x="111" y="8" width="192.5" height="36"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XAh-cV-r2W">
-                                <rect key="frame" x="26" y="70" width="34" height="30"/>
+                                <rect key="frame" x="26" y="26" width="34" height="30"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
                                     <action selector="backButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mFq-hj-7fH"/>
@@ -111,6 +108,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="THk-PY-5PK"/>
                     <connections>
                         <outlet property="scoreLabel" destination="vng-rp-tka" id="KLB-gp-948"/>
                         <outlet property="shopifyCollectionView" destination="agn-eD-gq2" id="vc1-4q-8IT"/>
@@ -223,7 +221,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ssl-JN-mbW">
-                                <rect key="frame" x="57.5" y="238" width="299" height="53"/>
+                                <rect key="frame" x="57.5" y="144" width="299" height="53"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Memory Game">
                                         <attributes>
@@ -236,13 +234,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tHO-y6-OcT">
-                                <rect key="frame" x="163" y="357.5" width="88" height="21"/>
+                                <rect key="frame" x="163" y="237" width="88" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" tag="1" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rq3-fj-OmG">
-                                <rect key="frame" x="137" y="478.5" width="140" height="35"/>
+                                <rect key="frame" x="137" y="358" width="140" height="35"/>
                                 <color key="backgroundColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="sZp-lp-riv"/>
@@ -257,10 +255,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J27-q0-4f8">
-                                <rect key="frame" x="137" y="538.5" width="140" height="35"/>
+                                <rect key="frame" x="137" y="418" width="140" height="35"/>
                                 <color key="backgroundColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="140" id="b9w-qH-4od"/>
                                     <constraint firstAttribute="width" constant="140" id="dX0-Co-0yV"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
@@ -273,11 +270,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleAspectFit" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uMO-3z-QPN">
-                                <rect key="frame" x="137" y="598.5" width="140" height="35"/>
+                                <rect key="frame" x="137" y="478" width="140" height="35"/>
                                 <color key="backgroundColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="PXa-1J-NnP"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="140" id="m6W-XY-QS8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="Hard">
@@ -288,17 +284,34 @@
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="hardGame" id="t3h-Wd-aZW"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" tag="4" contentMode="scaleAspectFit" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dtn-KQ-ePX">
+                                <rect key="frame" x="137" y="538" width="140" height="35"/>
+                                <color key="backgroundColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="wA0-i1-kJJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Very Hard">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="isPressed:" destination="sRA-E5-dSH" eventType="touchUpInside" id="915-3o-9ib"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="veryHard" id="4h3-QU-kgC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.078431372549019607" green="0.74117647058823533" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="dtn-KQ-ePX" firstAttribute="top" secondItem="uMO-3z-QPN" secondAttribute="bottom" constant="25" id="2pz-HS-gYc"/>
+                            <constraint firstItem="dtn-KQ-ePX" firstAttribute="centerX" secondItem="EyE-2B-8MP" secondAttribute="centerX" id="5YO-KL-kVF"/>
                             <constraint firstItem="J27-q0-4f8" firstAttribute="centerX" secondItem="EyE-2B-8MP" secondAttribute="centerX" id="CZL-Wb-qxf"/>
                             <constraint firstItem="tHO-y6-OcT" firstAttribute="centerX" secondItem="EyE-2B-8MP" secondAttribute="centerX" id="CtW-2t-b7Y"/>
                             <constraint firstItem="Rq3-fj-OmG" firstAttribute="centerX" secondItem="EyE-2B-8MP" secondAttribute="centerX" id="FyN-zd-RBN"/>
-                            <constraint firstItem="ssl-JN-mbW" firstAttribute="top" secondItem="Ia7-wi-hkm" secondAttribute="top" constant="194" id="Hct-B3-cGH"/>
+                            <constraint firstItem="ssl-JN-mbW" firstAttribute="top" secondItem="Ia7-wi-hkm" secondAttribute="top" constant="100" id="Hct-B3-cGH"/>
                             <constraint firstItem="uMO-3z-QPN" firstAttribute="top" secondItem="J27-q0-4f8" secondAttribute="bottom" constant="25" id="a7W-FF-YYX"/>
                             <constraint firstItem="ssl-JN-mbW" firstAttribute="centerX" secondItem="EyE-2B-8MP" secondAttribute="centerX" id="bSE-Uj-vd2"/>
                             <constraint firstItem="Rq3-fj-OmG" firstAttribute="top" secondItem="tHO-y6-OcT" secondAttribute="bottom" constant="100" id="cUd-LM-Sz1"/>
-                            <constraint firstItem="tHO-y6-OcT" firstAttribute="top" secondItem="ssl-JN-mbW" secondAttribute="bottom" constant="66.5" id="na4-V2-FqF"/>
+                            <constraint firstItem="tHO-y6-OcT" firstAttribute="top" secondItem="ssl-JN-mbW" secondAttribute="bottom" constant="40" id="na4-V2-FqF"/>
                             <constraint firstItem="uMO-3z-QPN" firstAttribute="centerX" secondItem="EyE-2B-8MP" secondAttribute="centerX" id="sY5-nP-tCi"/>
                             <constraint firstItem="J27-q0-4f8" firstAttribute="top" secondItem="Rq3-fj-OmG" secondAttribute="bottom" constant="25" id="t3i-kv-hCC"/>
                         </constraints>
@@ -315,6 +328,6 @@
         <image name="images" width="75" height="75"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="t3h-Wd-aZW"/>
+        <segue reference="4h3-QU-kgC"/>
     </inferredMetricsTieBreakers>
 </document>
