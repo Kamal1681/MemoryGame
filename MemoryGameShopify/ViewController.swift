@@ -69,6 +69,7 @@ class ViewController: UIViewController, GameModelDelegate {
         if score == gameArraySize / 2 {
             gameModel?.disableCollectionView = true
             winner = gameModel!.playerTurnToggle
+            timer.invalidate()
             DispatchQueue.main.asyncAfter(deadline:.now() + .seconds(4), execute: {
                 self.gameOver()
             })
@@ -78,7 +79,6 @@ class ViewController: UIViewController, GameModelDelegate {
     
     func gameOver() {
         
-        timer.invalidate()
         DispatchQueue.main.async {
             self.gameModel!.playSound(fileName: "gameOver")
         }
