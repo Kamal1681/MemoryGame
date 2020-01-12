@@ -14,9 +14,16 @@ class GameOverViewController: UIViewController {
     @IBOutlet weak var secLabel: UILabel!
     @IBOutlet weak var minLabel: UILabel!
     @IBOutlet weak var minText: UILabel!
+    @IBOutlet weak var winnerLabel: UILabel!
+    
     var time = 0
+    var playerTurn = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        winnerLabel.text = playerTurn ? "P2 Won!" : "P1 Won!"
+        
         if time < 60 {
             minLabel.removeFromSuperview()
             minText.removeFromSuperview()

@@ -14,6 +14,10 @@
 		C653DDDD2333D0E1008816A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C653DDDC2333D0E1008816A0 /* ViewController.swift */; };
 		C653DDE02333D0E1008816A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C653DDDE2333D0E1008816A0 /* Main.storyboard */; };
 		C653DDE52333D0E5008816A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C653DDE32333D0E5008816A0 /* LaunchScreen.storyboard */; };
+		C6579FAB23CAA37300F1D9CA /* fail.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6579FA923CAA37200F1D9CA /* fail.wav */; };
+		C6579FAF23CAA62D00F1D9CA /* correctMatch.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6579FAE23CAA62D00F1D9CA /* correctMatch.wav */; };
+		C6579FB123CAA65A00F1D9CA /* gameOver.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6579FB023CAA65A00F1D9CA /* gameOver.wav */; };
+		C6579FB323CAAE1400F1D9CA /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6579FB223CAAE1400F1D9CA /* GameModel.swift */; };
 		C68A790F23384C7600F2DBD4 /* ShopifyPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68A790E23384C7600F2DBD4 /* ShopifyPhotoCell.swift */; };
 		C68A7911233980D900F2DBD4 /* ShopifyPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68A7910233980D900F2DBD4 /* ShopifyPhoto.swift */; };
 /* End PBXBuildFile section */
@@ -28,6 +32,10 @@
 		C653DDDF2333D0E1008816A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C653DDE42333D0E5008816A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C653DDE62333D0E5008816A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6579FA923CAA37200F1D9CA /* fail.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = fail.wav; sourceTree = "<group>"; };
+		C6579FAE23CAA62D00F1D9CA /* correctMatch.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correctMatch.wav; sourceTree = "<group>"; };
+		C6579FB023CAA65A00F1D9CA /* gameOver.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gameOver.wav; sourceTree = "<group>"; };
+		C6579FB223CAAE1400F1D9CA /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		C68A790E23384C7600F2DBD4 /* ShopifyPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopifyPhotoCell.swift; sourceTree = "<group>"; };
 		C68A7910233980D900F2DBD4 /* ShopifyPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopifyPhoto.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -62,8 +70,10 @@
 		C653DDD92333D0E1008816A0 /* MemoryGameShopify */ = {
 			isa = PBXGroup;
 			children = (
+				C6579FAD23CAA37A00F1D9CA /* Sounds */,
 				C653DDDA2333D0E1008816A0 /* AppDelegate.swift */,
 				C653DDDC2333D0E1008816A0 /* ViewController.swift */,
+				C6579FB223CAAE1400F1D9CA /* GameModel.swift */,
 				C61B2A1F2343B814003B17E7 /* Assets.xcassets */,
 				C68A7910233980D900F2DBD4 /* ShopifyPhoto.swift */,
 				C68A790E23384C7600F2DBD4 /* ShopifyPhotoCell.swift */,
@@ -74,6 +84,16 @@
 				C653DDE62333D0E5008816A0 /* Info.plist */,
 			);
 			path = MemoryGameShopify;
+			sourceTree = "<group>";
+		};
+		C6579FAD23CAA37A00F1D9CA /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				C6579FA923CAA37200F1D9CA /* fail.wav */,
+				C6579FB023CAA65A00F1D9CA /* gameOver.wav */,
+				C6579FAE23CAA62D00F1D9CA /* correctMatch.wav */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,9 +154,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6579FAB23CAA37300F1D9CA /* fail.wav in Resources */,
 				C653DDE52333D0E5008816A0 /* LaunchScreen.storyboard in Resources */,
 				C61B2A202343B814003B17E7 /* Assets.xcassets in Resources */,
+				C6579FB123CAA65A00F1D9CA /* gameOver.wav in Resources */,
 				C653DDE02333D0E1008816A0 /* Main.storyboard in Resources */,
+				C6579FAF23CAA62D00F1D9CA /* correctMatch.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +175,7 @@
 				C68A790F23384C7600F2DBD4 /* ShopifyPhotoCell.swift in Sources */,
 				C653DDDB2333D0E1008816A0 /* AppDelegate.swift in Sources */,
 				C6443F71234515EC0026062D /* GameOverViewController.swift in Sources */,
+				C6579FB323CAAE1400F1D9CA /* GameModel.swift in Sources */,
 				C6443F73234524980026062D /* StartGameViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
