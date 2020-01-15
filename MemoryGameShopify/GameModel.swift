@@ -57,7 +57,11 @@ class GameModel {
                 
                 firstCell?.isUserInteractionEnabled = false
                 secondCell?.isUserInteractionEnabled = false
-            } else if firstPhoto?.id != secondPhoto?.id {
+            } else if  firstCell === secondCell {
+                selectCounter = 1
+                return
+            }
+            else if firstPhoto?.id != secondPhoto?.id {
                 disableCollectionView = true
                 DispatchQueue.main.async {
                     self.playSound(fileName: "fail")
@@ -69,8 +73,9 @@ class GameModel {
                     self.disableCollectionView = false
                 })
             }
-            playerTurnToggle = !playerTurnToggle
+            
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
+                self.playerTurnToggle = !self.playerTurnToggle
                 self.delegate?.updateLabels()
             }
         

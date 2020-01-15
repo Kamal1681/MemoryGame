@@ -47,6 +47,10 @@ class ViewController: UIViewController, GameModelDelegate {
         
 
     }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        shopifyCollectionView.reloadData()
+    }
 // MARK: - Updating game HUD
     
     func updateLabels() {
@@ -60,17 +64,17 @@ class ViewController: UIViewController, GameModelDelegate {
     func startTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (time) in
             self.time += 1
-            self.timeLabel.text = "\(self.time)"
+            self.timeLabel.text = "Time: \(self.time)"
         })
     }
 
      func checkWinStatus(score: Int) {
 
-        if score == gameArraySize / 2 {
+        if score == 2 {
             gameModel?.disableCollectionView = true
             winner = gameModel!.playerTurnToggle
             timer.invalidate()
-            DispatchQueue.main.asyncAfter(deadline:.now() + .seconds(4), execute: {
+            DispatchQueue.main.asyncAfter(deadline:.now() + .seconds(8), execute: {
                 self.gameOver()
             })
             
@@ -192,16 +196,21 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        if let collection = shopifyCollectionView {
-            let width = collection.frame.size.width / itemsPerRow
-            
-            let height = collection.frame.size.height / numberOfRows
-
-            return CGSize(width: width, height: height)
-        } else {
+       
+        guard let collection = shopifyCollectionView else {
             return CGSize(width: 0, height: 0)
         }
-    }
+        if UIDevice.current.orientation.isLandscape {
+            let width = collection.frame.size.width / numberOfRows
+            let height = collection.frame.size.height / itemsPerRow
+            return CGSize(width: width, height: height)
+        }
+        else {
+            let width = collection.frame.size.width / itemsPerRow
+            let height = collection.frame.size.height / numberOfRows
+            return CGSize(width: width, height: height)
+        }
+        
+        }
     
 }
