@@ -70,7 +70,7 @@ class ViewController: UIViewController, GameModelDelegate {
 
      func checkWinStatus(score: Int) {
 
-        if score == 2 {
+        if score == gameArraySize / 2 {
             gameModel?.disableCollectionView = true
             winner = gameModel!.playerTurnToggle
             timer.invalidate()
