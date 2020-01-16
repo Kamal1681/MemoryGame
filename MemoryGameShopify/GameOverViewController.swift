@@ -10,22 +10,30 @@ import UIKit
 
 class GameOverViewController: UIViewController {
 
-
-    @IBOutlet weak var secLabel: UILabel!
-    @IBOutlet weak var minLabel: UILabel!
-    @IBOutlet weak var minText: UILabel!
+    @IBOutlet weak var winnerLabel: UILabel!
+    
+    @IBOutlet weak var timeLabel: UILabel!
     var time = 0
+    var playerTurn = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        if time < 60 {
-            minLabel.removeFromSuperview()
-            minText.removeFromSuperview()
-        }
-        let minutes = time / 60
-        let seconds = time - minutes * 60
-        minLabel.text = "\(minutes)"
-        secLabel.text = "\(seconds)"
-        // Do any additional setup after loading the view.
+        
+        updateLabels()
+    }
+    
+    func updateLabels() {
+        
+        winnerLabel.text = playerTurn ? "P2 Won!" : "P1 Won!"
+         
+         let minutes = time / 60
+         let seconds = time - minutes * 60
+         
+         if time < 60 {
+             timeLabel.text = "Finished in: \(seconds) sec"
+         } else {
+             timeLabel.text = "Finished in: \(minutes) min and \(seconds) sec"
+         }
     }
     
 

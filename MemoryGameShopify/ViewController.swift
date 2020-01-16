@@ -7,95 +7,117 @@
 //
 
 import UIKit
+import AVFoundation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, GameModelDelegate {
     
+    var gameModel: GameModel?
     let reuseIdentifier = "ShopifyPhotoCell"
     var photoArray = [ShopifyPhoto]()
     var gameDictionary = [Int: ShopifyPhoto]()
     var gameArray = [ShopifyPhoto]()
-    var selectCounter = 0
+    
     var score = 0
     var time = 0
     var timer = Timer()
-    var firstCell: ShopifyPhotoCell?
-    var secondCell: ShopifyPhotoCell?
-    var firstPhoto: ShopifyPhoto?
-    var secondPhoto: ShopifyPhoto?
-    var disableCollectionView = false
+    var winner = false
 
-    var gameArraySize: Int = 10
-    var itemsPerRow: CGFloat = 4.0
-    var numberOfRows: CGFloat = 5.0
-    let sectionInsets = UIEdgeInsets(top: 20.0,
-                                     left: 10.0,
-                                     bottom: 20.0,
-                                     right: 10.0)
+    var gameArraySize: Int = 50
+    var itemsPerRow: CGFloat = 10.0
+    var numberOfRows: CGFloat = 10.0
+    
     @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var scoreLabel: UILabel!
+    
+    @IBOutlet weak var playerTurnLabel: UILabel!
+    @IBOutlet weak var p1ScoreLabel: UILabel!
+    
+    @IBOutlet weak var p2ScoreLabel: UILabel!
     @IBOutlet weak var shopifyCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         retrievePhotos()
+        gameModel = GameModel()
+        gameModel?.delegate = self
+        updateLabels()
         shopifyCollectionView.delegate = self
         shopifyCollectionView.dataSource = self
         
         startTimer()
-        updateScore()
+        
 
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        shopifyCollectionView.reloadData()
     }
 // MARK: - Updating game HUD
     
+    func updateLabels() {
+        p1ScoreLabel.text = "P1 Score: \(gameModel!.p1Score)"
+        p2ScoreLabel.text = "P2 Score: \(gameModel!.p2Score)"
+        guard let playerTurn = gameModel?.playerTurnToggle else { return }
+        playerTurnLabel.text = playerTurn ? "P2 Turn" : "P1 Turn"
+
+    }
+    
     func startTimer() {
-        
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (time) in
             self.time += 1
-            self.timeLabel.text = "\(self.time)"
+            self.timeLabel.text = "Time: \(self.time)"
         })
     }
 
-    func updateScore() {
-        scoreLabel.text = "\(score)"
-        if score == gameArraySize {
-            DispatchQueue.main.asyncAfter(deadline:.now() + .seconds(4), execute: {
+     func checkWinStatus(score: Int) {
+
+        if score == gameArraySize / 2 {
+            gameModel?.disableCollectionView = true
+            winner = gameModel!.playerTurnToggle
+            timer.invalidate()
+            DispatchQueue.main.asyncAfter(deadline:.now() + .seconds(8), execute: {
                 self.gameOver()
             })
             
         }
     }
+    
     func gameOver() {
         
-        timer.invalidate()
-        
-        
+        DispatchQueue.main.async {
+            self.gameModel!.playSound(fileName: "gameOver")
+        }
         if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameOver") as? GameOverViewController
         {
+            viewController.playerTurn = winner
             viewController.time = self.time
             present(viewController, animated: true, completion: nil)
         }
     }
+
     
     @IBAction func backButtonPressed(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+
     // MARK: - Setting up the photos array
     
     func retrievePhotos() {
         
        let url = URL(string: "https://shopicruit.myshopify.com/admin/products.json?page=1&access_token=c32313df0d0ef512ca64d5b336a0d7c6")
         
-        let task = URLSession.shared.dataTask(with: url! as URL) { (data, response, error) in
+        URLSession.shared.dataTask(with: url! as URL) { (data, response, error) in
             do {
                 if data != nil {
-                    let products = try JSONSerialization.jsonObject(with: data!, options: .mutableLeaves) as! [String : Array<Dictionary<String, Any>>]
+                    let products = try JSONSerialization.jsonObject(with: data!, options: .mutableLeaves) as! [String : [Dictionary<String, Any>]]
                     
                     for product in (products["products"]!) {
                         let id = product["id"] as! Int
-                        let image = product["image"] as! NSDictionary
-                        let photpoURL = URL(string: (image["src"] as! String))
+                        let image = product["image"] as! Dictionary<String, Any>
+                        let photoURL = URL(string: (image["src"] as! String))
                         
-                        let shopifyPhoto = ShopifyPhoto(id: id, photoURL: photpoURL! )
+                        let shopifyPhoto = ShopifyPhoto(id: id, photoURL: photoURL! )
+                        self.photoArray.append(shopifyPhoto)
                         self.photoArray.append(shopifyPhoto)
                     }
                     self.constructGameArray()
@@ -107,9 +129,9 @@ class ViewController: UIViewController {
             catch {
                 print("Error")
             }
-        }
-        task.resume()
+        }.resume()
     }
+    
     func constructGameArray() {
         
         while gameDictionary.count < gameArraySize {
@@ -144,72 +166,51 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        if disableCollectionView {
+        if gameModel!.disableCollectionView {
             return
         }
         let cell = collectionView.cellForItem(at: indexPath) as! ShopifyPhotoCell
-    
+
         let url = gameArray[indexPath.row].photoURL!
-        let task = URLSession.shared.dataTask(with: url as URL) { (data, response, error) in
+        URLSession.shared.dataTask(with: url as URL) { (data, response, error) in
                 if data != nil {
 
                     DispatchQueue.main.async {
                         let image = UIImage(data: data!)
                         cell.shopifyPhoto.image = image
-                        self.gameLogic(cell: cell, shopifyPhoto: self.gameArray[indexPath.row])
+                        self.gameModel?.gameLogic(cell: cell, shopifyPhoto: self.gameArray[indexPath.row])
                     }
                 }
-        }
-        task.resume()
+        }.resume()
+
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
-        let paddingSpaceHorizontal = sectionInsets.left * (itemsPerRow + 1)
-        let availableWidth = collectionView.frame.size.width - paddingSpaceHorizontal
-        let widthPerItem = availableWidth / itemsPerRow
-        let paddingSpaceVertical = sectionInsets.top * (numberOfRows + 1)
-        let availableHeight = collectionView.frame.size.height - paddingSpaceVertical
-        let heightPerItem = availableHeight / numberOfRows
-
-        return CGSize(width: widthPerItem, height: heightPerItem)
-    }
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        insetForSectionAt section: Int) -> UIEdgeInsets {
-        return sectionInsets
-    }
-    
-    // MARK: - Game Logic function for checking photos matching and updating score
-    
-    func gameLogic(cell: ShopifyPhotoCell, shopifyPhoto: ShopifyPhoto) {
-        selectCounter += 1
-        if selectCounter == 1 {
-            firstCell = cell
-            firstPhoto = shopifyPhoto
-            
+       
+        guard let collection = shopifyCollectionView else {
+            return CGSize(width: 0, height: 0)
         }
-        else if selectCounter == 2 {
-            
-            secondCell = cell
-            secondPhoto = shopifyPhoto
-            if firstPhoto?.id == secondPhoto?.id && firstCell != secondCell {
-                score += 1
-                updateScore()
-                firstCell?.isUserInteractionEnabled = false
-                secondCell?.isUserInteractionEnabled = false
-            } else {
-                disableCollectionView = true
-                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-                    self.firstCell!.shopifyPhoto?.image = UIImage(named: "images")
-                    self.secondCell!.shopifyPhoto?.image = UIImage(named: "images")
-                    self.disableCollectionView = false
-                })
-            }
-        selectCounter = 0
+        if UIDevice.current.orientation.isLandscape {
+            let width = collection.frame.size.width / numberOfRows
+            let height = collection.frame.size.height / itemsPerRow
+            return CGSize(width: width, height: height)
         }
-
-    }
+        else {
+            let width = collection.frame.size.width / itemsPerRow
+            let height = collection.frame.size.height / numberOfRows
+            return CGSize(width: width, height: height)
+        }
+        
+        }
+    
 }
