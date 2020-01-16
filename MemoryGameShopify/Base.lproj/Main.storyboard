@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sRA-E5-dSH">
-    <device id="retina3_5" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,11 +12,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MemoryGameShopify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="agn-eD-gq2">
-                                <rect key="frame" x="0.0" y="110" width="320" height="350"/>
+                                <rect key="frame" x="0.0" y="110" width="375" height="537"/>
                                 <color key="backgroundColor" red="0.078431372549019607" green="0.74117647058823533" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RLD-l7-bOC">
                                     <size key="itemSize" width="91" height="96"/>
@@ -62,13 +62,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="timeLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9H-qT-KpN">
-                                <rect key="frame" x="225" y="77" width="75" height="21"/>
+                                <rect key="frame" x="280" y="77" width="75" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Memory Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xET-pw-Hkw">
-                                <rect key="frame" x="64" y="8" width="192.5" height="36"/>
+                                <rect key="frame" x="91.5" y="8" width="192.5" height="36"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -81,7 +81,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="playerTurnLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AUC-f3-HXk">
-                                <rect key="frame" x="99.5" y="52" width="121.5" height="21"/>
+                                <rect key="frame" x="127" y="52" width="121.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -128,14 +128,14 @@
             <objects>
                 <viewController storyboardIdentifier="GameOver" id="PNZ-II-fcF" customClass="GameOverViewController" customModule="MemoryGameShopify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="i38-hn-2Pk">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1fV-aD-J4I" userLabel="TopView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="333.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Winner!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gU0-c5-kmg">
-                                        <rect key="frame" x="69" y="90" width="182.5" height="60"/>
+                                        <rect key="frame" x="96.5" y="137" width="182.5" height="60"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -148,10 +148,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HYH-Qx-mD6" userLabel="BottomView">
-                                <rect key="frame" x="0.0" y="240" width="320" height="240"/>
+                                <rect key="frame" x="0.0" y="333.5" width="375" height="333.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleAspectFit" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="dpb-D3-gbN">
-                                        <rect key="frame" x="90" y="155" width="140" height="35"/>
+                                        <rect key="frame" x="117.5" y="248.5" width="140" height="35"/>
                                         <color key="backgroundColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="140" id="jCy-kS-fQK"/>
@@ -209,20 +209,20 @@
             <objects>
                 <viewController storyboardIdentifier="NewGame" id="sRA-E5-dSH" customClass="StartGameViewController" customModule="MemoryGameShopify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EyE-2B-8MP">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bM6-Tx-ooj" userLabel="TopView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="222.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Game" textAlignment="natural" lineBreakMode="tailTruncation" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="tHO-y6-OcT">
-                                        <rect key="frame" x="116.5" y="119.5" width="87.5" height="20.5"/>
+                                        <rect key="frame" x="144" y="182" width="87.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" minimumScaleFactor="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="ssl-JN-mbW">
-                                        <rect key="frame" x="11" y="40" width="298.5" height="52.5"/>
+                                        <rect key="frame" x="38.5" y="40" width="298.5" height="52.5"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Memory Game">
                                                 <attributes>
@@ -240,15 +240,22 @@
                                     <constraint firstItem="tHO-y6-OcT" firstAttribute="centerX" secondItem="bM6-Tx-ooj" secondAttribute="centerX" id="6ZC-2F-3Gx"/>
                                     <constraint firstItem="ssl-JN-mbW" firstAttribute="centerX" secondItem="bM6-Tx-ooj" secondAttribute="centerX" id="NUa-jc-F87"/>
                                     <constraint firstAttribute="bottom" secondItem="tHO-y6-OcT" secondAttribute="bottom" constant="20" id="Pwd-WM-Mcp"/>
-                                    <constraint firstItem="ssl-JN-mbW" firstAttribute="top" secondItem="bM6-Tx-ooj" secondAttribute="top" constant="40" id="dvp-JG-NBR"/>
+                                    <constraint firstItem="ssl-JN-mbW" firstAttribute="top" secondItem="bM6-Tx-ooj" secondAttribute="top" constant="40" id="dvp-JG-NBR">
+                                        <variation key="heightClass=compact" constant="8"/>
+                                    </constraint>
                                     <constraint firstItem="tHO-y6-OcT" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ssl-JN-mbW" secondAttribute="bottom" constant="10" id="gi4-hl-Cug"/>
                                 </constraints>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="Pwd-WM-Mcp"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="du9-jj-1YZ" userLabel="BottomView">
-                                <rect key="frame" x="0.0" y="160" width="320" height="320"/>
+                                <rect key="frame" x="0.0" y="222.5" width="375" height="444.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="w8q-7A-c6J">
-                                        <rect key="frame" x="90" y="52.5" width="140" height="215"/>
+                                        <rect key="frame" x="117.5" y="114.5" width="140" height="215"/>
                                         <subviews>
                                             <button opaque="NO" tag="1" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rq3-fj-OmG">
                                                 <rect key="frame" x="0.0" y="0.0" width="140" height="35"/>
@@ -311,9 +318,10 @@
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <variation key="heightClass=compact" spacing="15"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="uy4-iN-Nux">
-                                        <rect key="frame" x="237.5" y="64" width="71.5" height="192"/>
+                                        <rect key="frame" x="265" y="126" width="71.5" height="192"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 pairs to win" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRr-p4-PGa">
                                                 <rect key="frame" x="0.0" y="0.0" width="71.5" height="12"/>
@@ -340,15 +348,32 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <variation key="heightClass=compact" spacing="40"/>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="uy4-iN-Nux" firstAttribute="centerY" secondItem="w8q-7A-c6J" secondAttribute="centerY" id="0Rs-67-bJW"/>
                                     <constraint firstItem="w8q-7A-c6J" firstAttribute="centerY" secondItem="du9-jj-1YZ" secondAttribute="centerY" id="ABN-zS-POe"/>
-                                    <constraint firstItem="uy4-iN-Nux" firstAttribute="leading" secondItem="w8q-7A-c6J" secondAttribute="trailing" constant="7.5" id="EqO-fO-9AE"/>
+                                    <constraint firstItem="uy4-iN-Nux" firstAttribute="leading" secondItem="w8q-7A-c6J" secondAttribute="trailing" constant="7.5" id="EqO-fO-9AE">
+                                        <variation key="heightClass=compact" constant="8"/>
+                                    </constraint>
+                                    <constraint firstItem="uy4-iN-Nux" firstAttribute="width" secondItem="w8q-7A-c6J" secondAttribute="width" id="YNC-uS-be9"/>
+                                    <constraint firstItem="uy4-iN-Nux" firstAttribute="height" secondItem="w8q-7A-c6J" secondAttribute="height" multiplier="1.03784" id="ZeQ-cg-CiM"/>
                                     <constraint firstItem="w8q-7A-c6J" firstAttribute="centerX" secondItem="du9-jj-1YZ" secondAttribute="centerX" id="teq-vc-X4G"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="YNC-uS-be9"/>
+                                        <exclude reference="ZeQ-cg-CiM"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="YNC-uS-be9"/>
+                                        <exclude reference="ZeQ-cg-CiM"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.078431372549019607" green="0.74117647058823533" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -369,7 +394,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XWZ-84-yZB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1128.7769784172663" y="113.30935251798562"/>
+            <point key="canvasLocation" x="1128.75" y="112.5"/>
         </scene>
     </scenes>
     <resources>
