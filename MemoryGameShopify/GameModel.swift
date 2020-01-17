@@ -25,11 +25,9 @@ class GameModel {
     var secondCell: ShopifyPhotoCell?
     var firstPhoto: ShopifyPhoto?
     var secondPhoto: ShopifyPhoto?
-    var p1Score = 0
-    var p2Score = 0
+    var score = 0
     
     var disableCollectionView = false
-    var playerTurnToggle = false
     
     func gameLogic(cell: ShopifyPhotoCell, shopifyPhoto: ShopifyPhoto) {
         selectCounter += 1
@@ -43,13 +41,9 @@ class GameModel {
             secondCell = cell
             secondPhoto = shopifyPhoto
             if firstPhoto?.id == secondPhoto?.id && firstCell != secondCell {
-                if playerTurnToggle {
-                    p2Score += 1
-                    delegate?.checkWinStatus(score: p2Score)
-                } else {
-                    p1Score += 1
-                    delegate?.checkWinStatus(score: p1Score)
-                }
+                
+                score += 1
+                delegate?.checkWinStatus(score: score)
 
                 DispatchQueue.main.async {
                     self.playSound(fileName: "correctMatch")
@@ -73,12 +67,7 @@ class GameModel {
                     self.disableCollectionView = false
                 })
             }
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
-                self.playerTurnToggle = !self.playerTurnToggle
-                self.delegate?.updateLabels()
-            }
-        
+            self.delegate?.updateLabels()
             selectCounter = 0
         }
 
@@ -94,7 +83,6 @@ class GameModel {
                   }
                   audioEffect.prepareToPlay()
                   audioEffect.play()
-        
               }
               catch let error {
                   print(error)

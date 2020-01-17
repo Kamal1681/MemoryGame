@@ -1,21 +1,21 @@
-//
-//  shopifyPhoto.swift
+
+//  ShopifyPhoto.swift
 //  MemoryGameShopify
 //
-//  Created by Kamal Maged on 2019-09-22.
-//  Copyright © 2019 Kamal Maged. All rights reserved.
+//  Created by Kamal Maged on 2020-01-16.
+//  Copyright © 2020 Kamal Maged. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class shopifyPhoto: NSObject {
-    var photoURL: URL?
-    var photoID: Int = 0
+class ShopifyPhoto {
     
-    init(photoURL: URL, photoID: Int) {
+    var photoURL: URL?
+    var id: Int?
+    
+    init(id: Int, photoURL: URL) {
         
-        self.photoID = photoID
+        self.id = id
         self.photoURL = photoURL
     }
-
 }
