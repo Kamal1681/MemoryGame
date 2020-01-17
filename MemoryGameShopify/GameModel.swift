@@ -41,10 +41,8 @@ class GameModel {
             secondCell = cell
             secondPhoto = shopifyPhoto
             if firstPhoto?.id == secondPhoto?.id && firstCell != secondCell {
-                
                 score += 1
                 delegate?.checkWinStatus(score: score)
-
                 DispatchQueue.main.async {
                     self.playSound(fileName: "correctMatch")
                 }

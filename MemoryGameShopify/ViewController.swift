@@ -70,7 +70,6 @@ class ViewController: UIViewController, GameModelDelegate {
             DispatchQueue.main.asyncAfter(deadline:.now() + .seconds(3), execute: {
                 self.gameOver()
             })
-            
         }
     }
     
