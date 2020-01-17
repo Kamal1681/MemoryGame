@@ -88,7 +88,7 @@ class GameOverViewController: UIViewController {
          let seconds = time - minutes * 60
          
          if time < 60 {
-             timeLabel.text = "Congrats in: \(seconds) sec"
+             timeLabel.text = "Finished in: \(seconds) sec"
          } else {
              timeLabel.text = "Finished in: \(minutes) min and \(seconds) sec"
          }
