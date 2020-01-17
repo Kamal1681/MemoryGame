@@ -16,14 +16,22 @@ The screen shots below are from the very hard mode game instance.
 
 ![](Start%20Screen.png)
 
-Initial grid when no pairs are matched:
+
+Initial grid when no pairs are matched.
+
 ![](No%20Matches%20are%20made%2050%20Pairs%20VeryHard%20mode.png)
 
-Screenshot when the grid is finished
+
+Screenshot when half the pairs are matched.
+
 ![](Some%20Matches%20are%20made%2050%20pairs%20VeryHard%20mode.png)
 
-Screenshot when the game is finished and all pairs are matched
+
+Screenshot when the game is finished and all pairs are matched.
+
 ![](User%20wins%20All%20Matches%20are%20made%2050%20pairs%20VeryHard%20mode.png)
 
-A message to the player logging the time elapsed and showing best time acheived 
+
+A message to the player logging the time elapsed and showing best time acheived.
+
 ![](GameOver%20screen%20VeryHard%20mode.png)
