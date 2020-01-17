@@ -27,11 +27,7 @@ class ViewController: UIViewController, GameModelDelegate {
     var numberOfRows: CGFloat = 10.0
     
     @IBOutlet weak var timeLabel: UILabel!
-    
-    @IBOutlet weak var playerTurnLabel: UILabel!
-    @IBOutlet weak var p1ScoreLabel: UILabel!
-    
-    @IBOutlet weak var p2ScoreLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var shopifyCollectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -51,14 +47,11 @@ class ViewController: UIViewController, GameModelDelegate {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         shopifyCollectionView.reloadData()
     }
+    
 // MARK: - Updating game HUD
     
     func updateLabels() {
-        p1ScoreLabel.text = "P1 Score: \(gameModel!.p1Score)"
-        p2ScoreLabel.text = "P2 Score: \(gameModel!.p2Score)"
-        guard let playerTurn = gameModel?.playerTurnToggle else { return }
-        playerTurnLabel.text = playerTurn ? "P2 Turn" : "P1 Turn"
-
+        scoreLabel.text = "Score: \(gameModel!.score)"
     }
     
     func startTimer() {
@@ -70,11 +63,11 @@ class ViewController: UIViewController, GameModelDelegate {
 
      func checkWinStatus(score: Int) {
 
-        if score == gameArraySize / 2 {
+        if score == gameArraySize {
             gameModel?.disableCollectionView = true
-            winner = gameModel!.playerTurnToggle
+            
             timer.invalidate()
-            DispatchQueue.main.asyncAfter(deadline:.now() + .seconds(8), execute: {
+            DispatchQueue.main.asyncAfter(deadline:.now() + .seconds(3), execute: {
                 self.gameOver()
             })
             
@@ -88,7 +81,7 @@ class ViewController: UIViewController, GameModelDelegate {
         }
         if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GameOver") as? GameOverViewController
         {
-            viewController.playerTurn = winner
+            viewController.gameArraySize = gameArraySize
             viewController.time = self.time
             present(viewController, animated: true, completion: nil)
         }
