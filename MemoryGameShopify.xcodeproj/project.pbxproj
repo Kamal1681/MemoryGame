@@ -18,6 +18,7 @@
 		C6579FAF23CAA62D00F1D9CA /* correctMatch.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6579FAE23CAA62D00F1D9CA /* correctMatch.wav */; };
 		C6579FB123CAA65A00F1D9CA /* gameOver.wav in Resources */ = {isa = PBXBuildFile; fileRef = C6579FB023CAA65A00F1D9CA /* gameOver.wav */; };
 		C6579FB323CAAE1400F1D9CA /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6579FB223CAAE1400F1D9CA /* GameModel.swift */; };
+		C6579FD723D14A9600F1D9CA /* ShopifyPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6579FD623D14A9600F1D9CA /* ShopifyPhoto.swift */; };
 		C68A790F23384C7600F2DBD4 /* ShopifyPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68A790E23384C7600F2DBD4 /* ShopifyPhotoCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		C6579FAE23CAA62D00F1D9CA /* correctMatch.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correctMatch.wav; sourceTree = "<group>"; };
 		C6579FB023CAA65A00F1D9CA /* gameOver.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gameOver.wav; sourceTree = "<group>"; };
 		C6579FB223CAAE1400F1D9CA /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		C6579FD623D14A9600F1D9CA /* ShopifyPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopifyPhoto.swift; sourceTree = "<group>"; };
 		C68A790E23384C7600F2DBD4 /* ShopifyPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopifyPhotoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,6 +76,7 @@
 				C6579FB223CAAE1400F1D9CA /* GameModel.swift */,
 				C61B2A1F2343B814003B17E7 /* Assets.xcassets */,
 				C68A790E23384C7600F2DBD4 /* ShopifyPhotoCell.swift */,
+				C6579FD623D14A9600F1D9CA /* ShopifyPhoto.swift */,
 				C653DDDE2333D0E1008816A0 /* Main.storyboard */,
 				C6443F72234524980026062D /* StartGameViewController.swift */,
 				C6443F70234515EC0026062D /* GameOverViewController.swift */,
@@ -169,6 +172,7 @@
 			files = (
 				C653DDDD2333D0E1008816A0 /* ViewController.swift in Sources */,
 				C68A790F23384C7600F2DBD4 /* ShopifyPhotoCell.swift in Sources */,
+				C6579FD723D14A9600F1D9CA /* ShopifyPhoto.swift in Sources */,
 				C653DDDB2333D0E1008816A0 /* AppDelegate.swift in Sources */,
 				C6443F71234515EC0026062D /* GameOverViewController.swift in Sources */,
 				C6579FB323CAAE1400F1D9CA /* GameModel.swift in Sources */,
