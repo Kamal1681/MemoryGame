@@ -4,7 +4,7 @@
 
 ![](No%20Matches%20are%20made%2050%20Pairs%20VeryHard%20mode.png)
 
-![](Some%20Matches%20are%20made%2050%20Pairs%20VeryHard%20mode.png)
+![](Some%20Matches%20are%20made%2050%20pairs%20VeryHard%20mode.png)
 
 ![](User%20wins%20All%20Matches%20are%20made%2050%20pairs%20VeryHard%20mode.png)
 
