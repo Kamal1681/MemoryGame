@@ -55,9 +55,7 @@ class GameModel {
             }
             else if firstPhoto?.id != secondPhoto?.id {
                 disableCollectionView = true
-                DispatchQueue.main.async {
-                    self.playSound(fileName: "fail")
-                }
+
                 DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
 
                     self.firstCell!.shopifyPhoto?.image = UIImage(named: "images")

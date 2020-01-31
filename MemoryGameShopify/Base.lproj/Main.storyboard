@@ -202,16 +202,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bM6-Tx-ooj" userLabel="TopView">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="222.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Game" textAlignment="natural" lineBreakMode="tailTruncation" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="tHO-y6-OcT">
-                                        <rect key="frame" x="144" y="182" width="87.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" minimumScaleFactor="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="ssl-JN-mbW">
-                                        <rect key="frame" x="38.5" y="40" width="298.5" height="52.5"/>
+                                        <rect key="frame" x="72.5" y="40" width="230.5" height="52.5"/>
                                         <attributedString key="attributedText">
-                                            <fragment content="Memory Game">
+                                            <fragment content="Start Game">
                                                 <attributes>
                                                     <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                     <font key="NSFont" size="45" name="Tahoma-Bold"/>
@@ -224,19 +218,11 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="tHO-y6-OcT" firstAttribute="centerX" secondItem="bM6-Tx-ooj" secondAttribute="centerX" id="6ZC-2F-3Gx"/>
                                     <constraint firstItem="ssl-JN-mbW" firstAttribute="centerX" secondItem="bM6-Tx-ooj" secondAttribute="centerX" id="NUa-jc-F87"/>
-                                    <constraint firstAttribute="bottom" secondItem="tHO-y6-OcT" secondAttribute="bottom" constant="20" id="Pwd-WM-Mcp"/>
                                     <constraint firstItem="ssl-JN-mbW" firstAttribute="top" secondItem="bM6-Tx-ooj" secondAttribute="top" constant="40" id="dvp-JG-NBR">
                                         <variation key="heightClass=compact" constant="8"/>
                                     </constraint>
-                                    <constraint firstItem="tHO-y6-OcT" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ssl-JN-mbW" secondAttribute="bottom" constant="10" id="gi4-hl-Cug"/>
                                 </constraints>
-                                <variation key="heightClass=compact">
-                                    <mask key="constraints">
-                                        <exclude reference="Pwd-WM-Mcp"/>
-                                    </mask>
-                                </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="du9-jj-1YZ" userLabel="BottomView">
                                 <rect key="frame" x="0.0" y="222.5" width="375" height="444.5"/>
@@ -307,60 +293,12 @@
                                         </subviews>
                                         <variation key="heightClass=compact" spacing="15"/>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="uy4-iN-Nux">
-                                        <rect key="frame" x="265" y="126" width="71.5" height="192"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 pairs to win" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRr-p4-PGa">
-                                                <rect key="frame" x="0.0" y="0.0" width="71.5" height="12"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 pairs to win" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fG2-yu-GMW">
-                                                <rect key="frame" x="0.0" y="60" width="71.5" height="12"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 pairs to win" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKr-EQ-VUT">
-                                                <rect key="frame" x="0.0" y="120" width="71.5" height="12"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50 pairs to win" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gAR-mL-u3I">
-                                                <rect key="frame" x="0.0" y="180" width="71.5" height="12"/>
-                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="10"/>
-                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <variation key="heightClass=compact" spacing="40"/>
-                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="uy4-iN-Nux" firstAttribute="centerY" secondItem="w8q-7A-c6J" secondAttribute="centerY" id="0Rs-67-bJW"/>
                                     <constraint firstItem="w8q-7A-c6J" firstAttribute="centerY" secondItem="du9-jj-1YZ" secondAttribute="centerY" id="ABN-zS-POe"/>
-                                    <constraint firstItem="uy4-iN-Nux" firstAttribute="leading" secondItem="w8q-7A-c6J" secondAttribute="trailing" constant="7.5" id="EqO-fO-9AE">
-                                        <variation key="heightClass=compact" constant="8"/>
-                                    </constraint>
-                                    <constraint firstItem="uy4-iN-Nux" firstAttribute="width" secondItem="w8q-7A-c6J" secondAttribute="width" id="YNC-uS-be9"/>
-                                    <constraint firstItem="uy4-iN-Nux" firstAttribute="height" secondItem="w8q-7A-c6J" secondAttribute="height" multiplier="1.03784" id="ZeQ-cg-CiM"/>
                                     <constraint firstItem="w8q-7A-c6J" firstAttribute="centerX" secondItem="du9-jj-1YZ" secondAttribute="centerX" id="teq-vc-X4G"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="YNC-uS-be9"/>
-                                        <exclude reference="ZeQ-cg-CiM"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="YNC-uS-be9"/>
-                                        <exclude reference="ZeQ-cg-CiM"/>
-                                    </mask>
-                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.078431372549019607" green="0.74117647058823533" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
